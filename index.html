@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sylvia's FlashCards</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+
+</head>
+<body style="background-color: lightGray">
+<script type="text/javascript">
+    var qnum = 0;
+    var anum = 0;
+    var questions = new Array('Adrenal gland','Anterior communicating a','Anterior facial v',
+            'Anterior interventricular a', 'Anterior tibial a','Anterior tibial v'
+            ,'Aortic valve','Axillary a','Axillary v','Azygos v','Basilar a','Basilic v','Brachial v','Brachial a','Brachiocephalic trunk',
+            'Brachiocephalic v','Brain tissue','Cardiac v','Celiac a','Cephalic v','Circumflex a','Common carotid a','Common iliac a','Common iliac v','Coronary sinus','Deep palmar arch of hand','Dorsalis pedis a','External carotid a','External iliac a','External iliac v','External jugular v',
+            'Facial a','Facial v','Femoral a','Femoral v','Fibular a','Fibular v','Gastric a','Gastric v','Gonads (either gender)','Gonadal a','Gonadal v','Great Saphenous v','Hepatic a','Hepatic v','Hepatic portal v','Inferior mesenteric a','Inferior mesenteric v','Inferior vena cava','Internal carotid a','Internal iliac a','Internal iliac v','Internal jugular v','Intestine (lg. or sm.)','Kidney','Left atrium','Left coronary a','Left ventricle','Lingual a','Liver tissue','Lumbar a','Lung Tissue','Median cubital v','Middle cerebral a','Middle sacral a','Mitral (Bicuspid) Valve','Myocardium','Phrenic a','Popliteal a','Popliteal v','Posterior cerebral a','Posterior communicating a','Posterior tibial a','Posterior tibial v','Pulmonary a','Pulmonary trunk','Pulmonary v','Pulmonary valve','Radial a','Radial v','Renal a','Renal v','Right atrium','Right coronary a','Right ventricle','Small saphenous v','Spleen','Splenic a','Splenic v','Stomach tissue','Subclavian a','Subclavian v','Superficial palmar arch of hand','Superficial temporal a','Superficial temporal v','Superior mesenteric a','Superior mesenteric v','Superior vena cava','Suprarenal a','Suprarenal v','Tricuspid valve','Ulnar a','Ulnar v','Vertebral a','Vertebral v','');
+
+    var answers = new Array('Suprarenal v','(anterior cerebral a)', 'Internal Jugular v', 'Myocardium',
+            'Dorsalis Pedis a','popliteal v','Aorta','Brachial a','subclavian v','Superior Vena Cava','Subclavian a'
+            ,'Axilary v','Axillary v','Radial/ Ulnar','Subclavian a','Superior Vena Cava','Internal Jugular Vein','coronary sinus','splenic /Gastric /common hepatic',
+            'Subclavian/medial cubital','myocardium ?','External corotid a','internal iliac a/ external iliac a','IVC','Right Atrium','Tissue of hands','Tissue of foot','Superficial temporal a/ lingual/facial','Femoral a','Common iliac v','R/L subclavian','facial tissue','External jugular','popliteal a','External iliac v','Plantar tissue','Poplitial','Stomach (GI tack)','Hepatic portal','Gonatal v','Gonads tissue','IVC','femoral v','liver','Inferior Vena Cava','liver','-Intestines','Hepatic portal','Right Atrium','Middle cerebral a','Pelvic','Common iliac v','Brachiocephalic v','inferior, superior mesenteric','renal v','bicuspid valve','Circumflex','Aoratic valve','tongue','hepatic v','Spine','pulmonary vein ?','Cephalic vein','Midbrain Tissue','Pelvic','Left Ventricle','Coronary V/ Cardiac v','Diaphram','Anterial tibial a','Femoral vein','Posterior communicating a','Anterior communicating a','plantar a','Poplitial v','lung tissue','Pulmonary a','Left Atrum','Pulmonary trunk','Deep Palmar of hand','Brachial v','kidney','IVC','Tricuspid valve','myocardium','pulmonary valve','popliteal v','Splenic v','spleen','hepatic portal','Gastric v','Vertibral a (basilar ) / Axilary (brachial)','brachialcephalic vein','Cephalic v','Scalp tissue','external jugular','Small intestine','hepatic portal','right atrium','Adrenal V','IVC','right ventricle','Deep Palmar of hand','Basilic v','basilar','R/L subclavian','');
+
+    function nextStep()
+    {
+        if(anum == answers.length)
+            qnum = anum = 0;
+        if(qnum == anum)
+        {
+            document.getElementById("question").innerHTML = questions[qnum++];
+            document.getElementById("answer").innerHTML = '???';
+            document.getElementById("next").value = 'Next Answer';
+        }
+        else
+        {
+            document.getElementById("answer").innerHTML = answers[anum++];
+            document.getElementById("next").value = 'Next Question';
+        }
+    }
+</script>
+
+<section>
+<div class="card text-center">
+  <div class="card-header" style="font-family: georgia; font-size: 50px; color: #122b40">
+    Blood vessels and Heart structures
+  </div>
+  <div class="card-block">
+            <h4 class="card-title" style="font-family: georgia; font-size: 30px;">Question:<br/></h4>
+            <span id="question" style="font-family: georgia; font-size: 40px; color: #122b80"></span>
+            <p class="card-text"></p>
+            <h4 class="card-title"style="font-family: georgia; font-size: 30px;">Answer:<br/></h4>
+            <span id="answer" style="font-family: georgia; font-size: 40px; color: green" ></span><br />
+            <p class="card-text"></p>
+            <input class="btn btn-primary" type="submit" value="First Question!" id="next" name="next" onclick="nextStep();" /></div>
+
+</div>
+</section>
+<section>
+    <div>
+        <p style="font-family: georgia; font-size: 40px;">key</p>
+        <p style="font-family: georgia; font-size: 20px; color: green">IVC = Inferior Vena Cava</p>
+        <p style="font-family: georgia; font-size: 20px; color: green">a = artery</p>
+        <p style="font-family: georgia; font-size: 20px; color: green">v = vein </p>
+    </div>
+</section>
+</body>
+</html>
